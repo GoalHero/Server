@@ -27,19 +27,20 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import HomeScreen from "./Components/HomeScreen";
 import Icon from "react-native-vector-icons";
 
-const HomeScreen = ({ navigation }) => {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen!</Text>
-      <Button
-        title="Go to details"
-        onPress={() => navigation.navigate("Details")}
-      />
-    </View>
-  );
-};
+// const HomeScreen = ({ navigation }) => {
+//   return (
+//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//       <Text>Home Screen!</Text>
+//       <Button
+//         title="Go to details"
+//         onPress={() => navigation.navigate("Details")}
+//       />
+//     </View>
+//   );
+// };
 
 const DetailScreen = () => {
   return (
