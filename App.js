@@ -1,4 +1,5 @@
 
+
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View,Image,Button } from 'react-native';
@@ -30,6 +31,7 @@ const heros = ["https://i.imgur.com/hjEkdfQ_d.webp?maxwidth=728&fidelity=grand",
 //   },
 // });
 
+
 import "react-native-gesture-handler";
 import * as React from "react";
 import { NavigationContainer, StackActions } from "@react-navigation/native";
@@ -38,18 +40,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "./Components/HomeScreen";
 import Icon from "react-native-vector-icons";
-
-// const HomeScreen = ({ navigation }) => {
-//   return (
-//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//       <Text>Home Screen!</Text>
-//       <Button
-//         title="Go to details"
-//         onPress={() => navigation.navigate("Details")}
-//       />
-//     </View>
-//   );
-// };
 
 const DetailScreen = () => {
   return (
@@ -166,6 +156,7 @@ export default function App() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
      flex: 1,
@@ -184,4 +175,5 @@ borderRadius:200/2,
   
   ,
 });
+
 
