@@ -3,12 +3,11 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Play from './Play'
 
-
 export default function App() {
   return (
     <View style={styles.container}>
       <Play />
-      <Text>Trying to import play</Text>
+      <Text>Trying to test touch</Text>
       <StatusBar style="auto" />
     </View>
   );
