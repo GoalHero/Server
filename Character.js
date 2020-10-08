@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { array, object, string } from 'prop-types';
+import Images from './assets/characterSprites/defaultKnights/defaultKnights.js'
 
 export default class Character extends Component {
   render() {
@@ -10,15 +11,16 @@ export default class Character extends Component {
     const y = this.props.body.position.y - height / 2;
 
     return (
-      <View
+      <Image
         style={{
             position: "absolute",
             left: x,
             top: y,
             width: width,
             height: height,
-            backgroundColor: this.props.color || "pink"
-          }}/>
+          }}
+        source={Images[`${this.props.state}${this.props.pose}`]}
+      />
     );
   }
 }

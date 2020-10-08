@@ -12,7 +12,7 @@ import Boundary from './Boundary'
 const engine = Matter.Engine.create({ enableSleeping: false });
 const world = engine.world;
 const { width, height } = Dimensions.get("screen")
-const charSize = Math.trunc(Math.max(width, height) * 0.075);
+const charSize = Math.trunc(Math.max(width, height) * 0.175);
 const initialChar = Matter.Bodies.rectangle(0, height / 2, charSize, charSize);
 const floorSize = Math.trunc(Math.max(width, height) * 0.075);
 const ceilingSize = Math.trunc(Math.max(width, height) * 0.075);
@@ -39,8 +39,9 @@ export default class Play extends React.Component {
             },
             initialChar: {
               body: initialChar,
-              size: [charSize, charSize],
-              color: 'purple',
+              size: [charSize * 1.2, charSize],
+              state: 'idle',
+              pose: '000',
               renderer: Character
             },
             floor: {
@@ -48,29 +49,29 @@ export default class Play extends React.Component {
               size: [width, floorSize],
               color: "green",
               renderer: Floor
-            }, 
+            },
             ceiling: {
-              body: ceiling, 
-              size: [width, ceilingSize], 
+              body: ceiling,
+              size: [width, ceilingSize],
               color: "green",
               renderer: Ceiling
-            }, 
+            },
             wall: {
-              body: wall, 
-              size: [width, height], 
-              color: "clear", 
-              renderer: Wall 
-            }, 
+              body: wall,
+              size: [width, height],
+              color: "clear",
+              renderer: Wall
+            },
             rightBoundary: {
-              body: rightBoundary, 
-              size: [boundarySize, height], 
-              color: 'clear', 
+              body: rightBoundary,
+              size: [boundarySize, height],
+              color: 'clear',
               renderer: Boundary
             },
             leftBoundary: {
-              body: leftBoundary, 
-              size: [boundarySize, height], 
-              color: 'clear', 
+              body: leftBoundary,
+              size: [boundarySize, height],
+              color: 'clear',
               renderer: Boundary
             }
         }}>
