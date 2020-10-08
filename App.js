@@ -118,21 +118,12 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={HomeStackScreen} />
+        {/* FISH: add log in here!
+        <Drawer.Screen name="" component={} />
+        STEPHEN/KEVIN: add game here!
+        <Drawer.Screen name="" component={} /> */}
         <Drawer.Screen name="Detail" component={DetailStackScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
 }
-
-// const Stack = createStackNavigator();
-
-// export default function App() {
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator>
-//         <Stack.Screen name="Home" component={HomeScreen} />
-//         <Stack.Screen name="Details" component={DetailsScreen} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// }
