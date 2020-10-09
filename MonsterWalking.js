@@ -1,5 +1,5 @@
-import Matter from "matter-js";
-import { StyleSheet, StatusBar, Dimensions } from "react-native";
+import Matter from 'matter-js';
+import { StyleSheet, StatusBar, Dimensions } from 'react-native';
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -8,22 +8,22 @@ function getRandomInt(max) {
 let pose = 0;
 let tick = 0;
 let consecutive = 0;
-let randomizer = getRandomInt(5);
-let direction = "left";
+let randomizer = getRandomInt(100);
+let direction = 'left';
 
 let directionObj = { left: -1, right: 1 };
 
 export const monsterWalking = (entities) => {
-  let engine = entities["physics"].engine;
+  let engine = entities['physics'].engine;
   let monster = entities.initialMonster.body;
   const walkLeft = () => {
     entities.initialMonster.face = -1;
-    Matter.Body.applyForce(monster, monster.position, { x: -0.15, y: 0 });
+    Matter.Body.applyForce(monster, monster.position, { x: -0.01, y: 0 });
   };
   const walkRight = () => {
     entities.initialMonster.face = 1;
-    Matter.Body.applyForce(monster, monster.position, { x: 0.15, y: 0 });
-  }
+    Matter.Body.applyForce(monster, monster.position, { x: 0.01, y: 0 });
+  };
   tick += 1;
   if (tick % 5 === 0) {
     pose = pose + 1;
@@ -34,16 +34,18 @@ export const monsterWalking = (entities) => {
   }
   if (consecutive < randomizer) {
     if (direction === 'left') {
-   walkLeft()
+      walkLeft();
     } else {
-   walkRight()
+      walkRight();
     }
+    consecutive++;
   } else {
-    let randomDirection = getRandomInt(1)
-    if (randomDirection === 0) {
-      direction = 'left'
-    } else {
+    if (direction === 'left') {
       direction = 'right'
+    } else {
+      direction = 'left'
     }
-  } 
+    consecutive = 0;
+    randomizer = getRandomInt(100)
+  }
 };

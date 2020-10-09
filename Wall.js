@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { View } from "react-native";
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import { array, object, string } from 'prop-types';
 
 export default class Wall extends Component {
@@ -12,19 +12,20 @@ export default class Wall extends Component {
     return (
       <View
         style={{
-            position: "absolute",
-            left: x,
-            top: y,
-            width: width,
-            height: height,
-            backgroundColor: this.props.color || "pink"
-          }}/>
+          position: 'absolute',
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+          backgroundColor: this.props.color || 'pink',
+        }}
+      />
     );
   }
 }
 
 Wall.propTypes = {
-    size: array,
-    body: object,
-    color: string
-}
+  size: array,
+  body: object,
+  color: string,
+};

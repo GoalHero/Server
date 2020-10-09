@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { View } from "react-native";
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import { array, object, string } from 'prop-types';
 
 export default class Boundary extends Component {
@@ -12,19 +12,20 @@ export default class Boundary extends Component {
     return (
       <View
         style={{
-            position: "absolute",
-            left: x,
-            top: y,
-            width: width,
-            height: height,
-            backgroundColor: this.props.color || "pink"
-          }}/>
+          position: 'absolute',
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+          backgroundColor: this.props.color || 'pink',
+        }}
+      />
     );
   }
 }
 
 Boundary.propTypes = {
-    size: array,
-    body: object,
-    color: string
-}
+  size: array,
+  body: object,
+  color: string,
+};

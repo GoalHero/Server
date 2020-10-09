@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { View, Image } from "react-native";
+import React, { Component } from 'react';
+import { View, Image } from 'react-native';
 import { array, object, string } from 'prop-types';
-import monsterImages from './assets/characterSprites/defaultMonsters/defaultMonsters.js'
+import monsterImages from './assets/characterSprites/defaultMonsters/defaultMonsters.js';
 
 export default class Monster extends Component {
   render() {
@@ -13,13 +13,13 @@ export default class Monster extends Component {
     return (
       <Image
         style={{
-            position: "absolute",
-            left: x,
-            top: y,
-            width: width,
-            height: height,
-            transform: [{scaleX: this.props.face}]
-          }}
+          position: 'absolute',
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+          transform: [{ scaleX: this.props.face }],
+        }}
         source={monsterImages[`${this.props.state}${this.props.pose}`]}
       />
     );
@@ -27,7 +27,7 @@ export default class Monster extends Component {
 }
 
 Monster.propTypes = {
-    size: array,
-    body: object,
-    color: string
-}
+  size: array,
+  body: object,
+  color: string,
+};

@@ -1,13 +1,11 @@
-import React, { Component } from "react";
-import { View } from "react-native";
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import { array, object, string } from 'prop-types';
 
 export default class HealthBar extends Component {
   constructor() {
-    super()
-    this.state = {
-      
-    }
+    super();
+    this.state = {};
   }
   render() {
     const width = this.props.size[0];
@@ -18,19 +16,20 @@ export default class HealthBar extends Component {
     return (
       <View
         style={{
-            position: "absolute",
-            left: x,
-            top: y,
-            width: width,
-            height: height,
-            backgroundColor: this.props.color || "pink"
-          }}/>
+          position: 'absolute',
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+          backgroundColor: this.props.color || 'pink',
+        }}
+      />
     );
   }
 }
 
 HealthBar.propTypes = {
-    size: array,
-    body: object,
-    color: string
-}
+  size: array,
+  body: object,
+  color: string,
+};

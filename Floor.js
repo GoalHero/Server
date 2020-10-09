@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { View, Image } from "react-native";
+import React, { Component } from 'react';
+import { View, Image } from 'react-native';
 import { array, object, string } from 'prop-types';
 
 export default class Floor extends Component {
@@ -12,20 +12,20 @@ export default class Floor extends Component {
     return (
       <Image
         style={{
-            position: "absolute",
-            left: x,
-            top: y,
-            width: width,
-            height: height,
-            backgroundColor: this.props.color || "pink"
-          }}
+          position: 'absolute',
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+          backgroundColor: this.props.color || 'pink',
+        }}
       />
     );
   }
 }
 
 Floor.propTypes = {
-    size: array,
-    body: object,
-    color: string
-}
+  size: array,
+  body: object,
+  color: string,
+};
