@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "./Components/HomeScreen";
-import Icon from "react-native-vector-icons";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const DetailScreen = () => {
   return (
@@ -34,30 +34,17 @@ const HomeStackScreen = ({ navigation }) => (
     <HomeStack.Screen
       name="Home"
       component={HomeScreen}
-      // options={{
-      //   title: "Home",
-      //   // headerLeft: () => (
-      //   //   <Icon.Button
-      //   //     name="ios-menu"
-      //   //     size={25}
-      //   //     backgroundColor="#009387"
-      //   //     options={() => {
-      //   //       navigation.openDrawer();
-      //   //     }}
-      //   //   ></Icon.Button>
-      //   // ),
-      // }}
-      // options={{
-      //   headerLeft: () => (
-      //     <Icon.Button
-      //       name="ios-menu"
-      //       size={25}
-      //       // backgroundColor="#7FAFD0"
-      //       backgroundColor="#114C9F"
-      //       onPress={() => navigation.openDrawer()}
-      //     ></Icon.Button>
-      //   ),
-      // }}
+      options={{
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#009387"
+            // backgroundColor="#114C9F"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
     />
   </HomeStack.Navigator>
 );
@@ -74,7 +61,21 @@ const DetailStackScreen = ({ navigation }) => (
       },
     }}
   >
-    <DetailStack.Screen name="Detail" component={DetailScreen} />
+    <DetailStack.Screen
+      name="Detail"
+      component={DetailScreen}
+      options={{
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#009387"
+            // backgroundColor="#114C9F"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
   </DetailStack.Navigator>
 );
 
