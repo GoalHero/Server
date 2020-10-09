@@ -13,5 +13,3 @@ export default monsterImages = {
     walking005: require('./Walking/Walking_005.png')
   }
 
-
-  //monsterimages

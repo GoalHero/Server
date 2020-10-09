@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import { array, object, string } from 'prop-types';
 
-export default class Ceiling extends Component {
+export default class HealthBar extends Component {
+  constructor() {
+    super()
+    this.state = {
+      
+    }
+  }
   render() {
     const width = this.props.size[0];
     const height = this.props.size[1];
@@ -23,7 +29,7 @@ export default class Ceiling extends Component {
   }
 }
 
-Ceiling.propTypes = {
+HealthBar.propTypes = {
     size: array,
     body: object,
     color: string

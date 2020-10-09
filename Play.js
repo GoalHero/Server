@@ -5,7 +5,7 @@ import { StyleSheet, StatusBar, Dimensions } from 'react-native'
 import Character from './Character'
 import Floor from './Floor'
 import { Physics } from './Physics'
-import Ceiling from './Ceiling'
+import HealthBar from './HealthBar'
 import Wall from './Wall'
 import Boundary from './Boundary'
 import Monster from './Monster'
@@ -14,20 +14,20 @@ const engine = Matter.Engine.create({ enableSleeping: false });
 const world = engine.world;
 const { width, height } = Dimensions.get("screen")
 const charSize = Math.trunc(Math.max(width, height) * 0.175);
-const monsterSize = Math.trunc(Math.max(width, height) * 0.175);
+const monsterSize = Math.trunc(Math.max(width, height) * 0.2);
 const initialChar = Matter.Bodies.rectangle(0, height / 2, charSize, charSize);
 const initialMonster = Matter.Bodies.rectangle(0, height / 2, monsterSize, monsterSize);
 const floorSize = Math.trunc(Math.max(width, height) * 0.075);
-const ceilingSize = Math.trunc(Math.max(width, height) * 0.075);
+const healthSize = Math.trunc(Math.max(width, height) * 0.075);
 const boundarySize = Math.trunc(Math.max(width, height) * 0.009);
 const floor = Matter.Bodies.rectangle(0, height - floorSize / 2, width, floorSize, { isStatic: true });
-const ceiling = Matter.Bodies.rectangle(0, 0, width, ceilingSize, { isStatic: true });
+const healthBar = Matter.Bodies.rectangle(0, 0, width, healthSize, { isStatic: true });
 const wall = Matter.Bodies.rectangle(0, 0, width, height, { isStatic: true });
 const leftBoundary = Matter.Bodies.rectangle(-width / 2 - boundarySize, height / 2, boundarySize, height, { isStatic: true });
 const rightBoundary = Matter.Bodies.rectangle(width / 2 + boundarySize, height / 2, boundarySize, height, { isStatic: true });
 
 
-Matter.World.add(world, [initialChar, floor, ceiling, leftBoundary, rightBoundary]);
+Matter.World.add(world, [initialChar, floor, leftBoundary, rightBoundary, initialMonster]);
 
 export default class Play extends React.Component {
   render() {
@@ -50,9 +50,10 @@ export default class Play extends React.Component {
             },
             initialMonster: {
               body: initialMonster, 
-              size: [monsterSize * 3, monsterSize], 
+              size: [monsterSize * 1.3, monsterSize], 
               state: 'idle', 
               pose: '000',
+              face: -1, 
               renderer: Monster
             }, 
             floor: {
@@ -61,11 +62,11 @@ export default class Play extends React.Component {
               color: "green",
               renderer: Floor
             },
-            ceiling: {
-              body: ceiling,
-              size: [width, ceilingSize],
+            healthBar: {
+              body: healthBar,
+              size: [width, healthSize],
               color: "green",
-              renderer: Ceiling
+              renderer: HealthBar
             },
             wall: {
               body: wall,

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Image } from "react-native";
 import { array, object, string } from 'prop-types';
-import monsterImages from './assets/characterSprites/defaultMonsters/PNG/Monster06/PNGSequuences/defaultMonsters.js'
+import monsterImages from './assets/characterSprites/defaultMonsters/defaultMonsters.js'
 
 export default class Monster extends Component {
   render() {
@@ -18,6 +18,7 @@ export default class Monster extends Component {
             top: y,
             width: width,
             height: height,
+            transform: [{scaleX: this.props.face}]
           }}
         source={monsterImages[`${this.props.state}${this.props.pose}`]}
       />

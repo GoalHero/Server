@@ -1,12 +1,11 @@
 import Matter from "matter-js";
 import { StyleSheet, StatusBar, Dimensions } from 'react-native'
-
+import { monsterWalking } from './MonsterWalking'
 
 let tick = 0;
 let walkingtick = 0;
 let pose = 0;
 let walkingpose = 0;
-
 let walking = false;
 
 const { width, height } = Dimensions.get("screen")
@@ -29,7 +28,8 @@ export const Physics = (entities, { touches, time }) => {
     });
 
     Matter.Engine.update(engine, time.delta);
-
+    monsterWalking(entities)
+    
     if (!walking) {
       tick += 1
       if (tick % 5 === 0) {
@@ -47,6 +47,5 @@ export const Physics = (entities, { touches, time }) => {
       }
       walkingtick += 1
     }
-
     return entities;
   };
