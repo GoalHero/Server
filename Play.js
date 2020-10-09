@@ -45,6 +45,7 @@ export default class Play extends React.Component {
               size: [charSize * 1.2, charSize],
               state: 'idle',
               pose: '000',
+              face: 1,
               renderer: Character
             },
             initialMonster: {

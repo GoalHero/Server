@@ -18,6 +18,7 @@ export default class Character extends Component {
             top: y,
             width: width,
             height: height,
+            transform: [{scaleX: this.props.face}]
           }}
         source={knightImages[`${this.props.state}${this.props.pose}`]}
       />
