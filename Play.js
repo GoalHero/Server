@@ -8,12 +8,15 @@ import { Physics } from './Physics'
 import Ceiling from './Ceiling'
 import Wall from './Wall'
 import Boundary from './Boundary'
+import Monster from './Monster'
 
 const engine = Matter.Engine.create({ enableSleeping: false });
 const world = engine.world;
 const { width, height } = Dimensions.get("screen")
 const charSize = Math.trunc(Math.max(width, height) * 0.175);
+const monsterSize = Math.trunc(Math.max(width, height) * 0.175);
 const initialChar = Matter.Bodies.rectangle(0, height / 2, charSize, charSize);
+const initialMonster = Matter.Bodies.rectangle(0, height / 2, monsterSize, monsterSize);
 const floorSize = Math.trunc(Math.max(width, height) * 0.075);
 const ceilingSize = Math.trunc(Math.max(width, height) * 0.075);
 const boundarySize = Math.trunc(Math.max(width, height) * 0.009);
@@ -44,6 +47,13 @@ export default class Play extends React.Component {
               pose: '000',
               renderer: Character
             },
+            initialMonster: {
+              body: initialMonster, 
+              size: [monsterSize * 3, monsterSize], 
+              state: 'idle', 
+              pose: '000',
+              renderer: Monster
+            }, 
             floor: {
               body: floor,
               size: [width, floorSize],

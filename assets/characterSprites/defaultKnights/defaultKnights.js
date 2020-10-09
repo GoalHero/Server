@@ -1,4 +1,4 @@
-export default Images = {
+export default knightImages = {
   idle000: require('./Idle/Idle_000.png'),
   idle001: require('./Idle/Idle_001.png'),
   idle002: require('./Idle/Idle_002.png'),

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { View, Image } from "react-native";
 import { array, object, string } from 'prop-types';
-import knightImages from './assets/characterSprites/defaultKnights/defaultKnights.js'
+import monsterImages from './assets/characterSprites/defaultMonsters/PNG/Monster06/PNGSequuences/defaultMonsters.js'
 
-export default class Character extends Component {
+export default class Monster extends Component {
   render() {
     const width = this.props.size[0];
     const height = this.props.size[1];
@@ -19,13 +19,13 @@ export default class Character extends Component {
             width: width,
             height: height,
           }}
-        source={knightImages[`${this.props.state}${this.props.pose}`]}
+        source={monsterImages[`${this.props.state}${this.props.pose}`]}
       />
     );
   }
 }
 
-Character.propTypes = {
+Monster.propTypes = {
     size: array,
     body: object,
     color: string
