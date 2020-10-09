@@ -6,17 +6,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "./Components/HomeScreen";
 import Icon from "react-native-vector-icons/Ionicons";
-
-const DetailScreen = () => {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Hi guys! This is the DETAILS Screen!</Text>
-    </View>
-  );
-};
+import Login from "./Components/Login";
+import User from "./Components/User";
 
 const HomeStack = createStackNavigator();
-const DetailStack = createStackNavigator();
+const LoginStack = createStackNavigator();
+const UserStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const HomeStackScreen = ({ navigation }) => (
@@ -49,8 +44,8 @@ const HomeStackScreen = ({ navigation }) => (
   </HomeStack.Navigator>
 );
 
-const DetailStackScreen = ({ navigation }) => (
-  <DetailStack.Navigator
+const LoginStackScreen = ({ navigation }) => (
+  <LoginStack.Navigator
     screenOptions={{
       headerStyle: {
         backgroundColor: "#009387",
@@ -61,9 +56,9 @@ const DetailStackScreen = ({ navigation }) => (
       },
     }}
   >
-    <DetailStack.Screen
+    <LoginStack.Screen
       name="Detail"
-      component={DetailScreen}
+      component={Login}
       options={{
         headerLeft: () => (
           <Icon.Button
@@ -76,7 +71,37 @@ const DetailStackScreen = ({ navigation }) => (
         ),
       }}
     />
-  </DetailStack.Navigator>
+  </LoginStack.Navigator>
+);
+
+const UserStackScreen = ({ navigation }) => (
+  <UserStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: "#009387",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    }}
+  >
+    <UserStack.Screen
+      name="Detail"
+      component={User}
+      options={{
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#009387"
+            // backgroundColor="#114C9F"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
+  </UserStack.Navigator>
 );
 
 export default function App() {
@@ -84,11 +109,12 @@ export default function App() {
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={HomeStackScreen} />
+        <Drawer.Screen name="Login" component={LoginStackScreen} />
         {/* FISH: add log in here!
         <Drawer.Screen name="" component={} />
         STEPHEN/KEVIN: add game here!
         <Drawer.Screen name="" component={} /> */}
-        <Drawer.Screen name="Detail" component={DetailStackScreen} />
+        <Drawer.Screen name="User" component={UserStackScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
