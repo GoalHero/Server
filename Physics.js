@@ -22,6 +22,7 @@ export const Physics = (entities, { touches, time }) => {
     .filter((t) => t.type === 'press')
     .forEach((t) => {
       if (t.event.pageY > height / 1.1 && t.event.pageX > width / 1.25) {
+        pose = 0;
         attacking = true;
       } else if (t.event.pageY < height / 3) {
         if (allowJump) {
