@@ -20,8 +20,10 @@ export const Physics = (entities, { touches, time }) => {
       entities.initialChar.state = "walking"
       walking = true;
       if (t.event.pageX < width / 2) {
+        entities.initialChar.face = -1
         Matter.Body.applyForce(char, char.position, {x: -0.15, y: 1.8})
       } else {
+        entities.initialChar.face = 1
         Matter.Body.applyForce(char, char.position, {x: 0.15, y: 1.8})
       }
     });
