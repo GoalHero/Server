@@ -1,28 +1,90 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, Button, TextInput } from "react-native";
+import { StyleSheet, Text, View, Image, Button, TextInput,TouchableHighlight } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import User from './User'
+
+
+const Stack = createStackNavigator();
+
+const Log = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcome}>Start Your GoalHero Journey!</Text>
+      <TextInput placeholder="Email:" style={styles.textInputStyle} />
+      <TextInput
+        placeholder="Password:"
+        password={true}
+        style={styles.textInputStyle}
+      />
+
+      <View style={styles.buttonStyle}>
+        
+        <Button
+          title="Login"
+          onPress={() => navigation.navigate("UserPage")}
+        />
+      </View>
+      <View style={styles.buttonStyle}>
+        <Button
+          title="Signup"
+          onPress={() => navigation.navigate("SignPage")}
+        />
+      </View>
+
+      <StatusBar style="auto" />
+    </View>
+  );
+};
+const Sign = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.welcome}>Sign Up!</Text>
+      <TextInput placeholder="Name:" style={styles.textInputStyle} />
+      <TextInput placeholder="Email:" style={styles.textInputStyle} />
+      <TextInput
+        placeholder="Password:"
+        password={true}
+        style={styles.textInputStyle}
+      />
+      <View>{/* {heros.map(hero,index)=>{
+return(
+    <Image />
+)
+}} */}</View>
+
+      <View style={styles.buttonStyle}>
+      <Button
+          title="Signup"
+          onPress={() => navigation.navigate("LogPage")}
+        />
+       
+      </View>
+
+      <StatusBar style="auto" />
+    </View>
+  );
+};
 
 export default class Login extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Start Your GoalHero Journey!</Text>
-        <TextInput placeholder="Email:" style={styles.textInputStyle} />
-        <TextInput
-          placeholder="Password:"
-          password={true}
-          style={styles.textInputStyle}
-        />
+      <NavigationContainer independent={true}>
+        {/* Rest of your app code */}
 
-        <View style={styles.buttonStyle}>
-          <Text>Login</Text>
-        </View>
-        <View style={styles.buttonStyle}>
-          <Text>Signup</Text>
-        </View>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="LogPage"
+            component={Log}
+            options={{ title: "Welcome" }}
+          />
 
-        <StatusBar style="auto" />
-      </View>
+          <Stack.Screen name="SignPage" component={Sign} />
+          <Stack.Screen name="UserPage" component={User} />
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }
