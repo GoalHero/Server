@@ -18,14 +18,14 @@ const { width, height } = Dimensions.get('screen');
 const charSize = Math.trunc(Math.max(width, height) * 0.175);
 const monsterSize = Math.trunc(Math.max(width, height) * 0.2);
 const initialChar = Matter.Bodies.rectangle(-width/2, height / 2, charSize, charSize);
-initialChar.collisionFilter ={"group":-1,"mask":1,"category":1}
+initialChar.collisionFilter = {"group":-1,"mask":1,"category":1}
 const initialMonster = Matter.Bodies.rectangle(
   width/2 ,
   height / 2,
   monsterSize,
   monsterSize
 );
-initialMonster.collisionFilter ={"group":-1,"mask":1,"category":1}
+initialMonster.collisionFilter = {"group":-1,"mask":1,"category":1}
 
 const floorSize = Math.trunc(Math.max(width, height) * 0.075);
 const healthSize = Math.trunc(Math.max(width, height) * 0.075);
@@ -40,7 +40,7 @@ const floor = Matter.Bodies.rectangle(
   { isStatic: true }
 );
 
-floor.collisionFilter ={"group":0,"mask":1,"category":1}
+floor.collisionFilter = {"group":0,"mask":1,"category":1}
 const healthBar = Matter.Bodies.rectangle(0, 0, width, healthSize, {
   isStatic: true,
 });
