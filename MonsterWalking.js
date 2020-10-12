@@ -11,9 +11,7 @@ let consecutive = 0;
 let randomizer = getRandomInt(100);
 let direction = 'left';
 
-let directionObj = { left: -1, right: 1 };
-
-export const monsterWalking = (entities) => {
+export const monsterWalking = (entities, monsterHurt, monsterImmune) => {
   let engine = entities['physics'].engine;
   let monster = entities.initialMonster.body;
   const walkLeft = () => {
@@ -30,22 +28,26 @@ export const monsterWalking = (entities) => {
     if (pose > 5) {
       pose = 0;
     }
-    entities.initialMonster.pose = `00${pose}`;
+    if (!monsterHurt) {
+      entities.initialMonster.pose = `00${pose}`;
+    }
   }
-  if (consecutive < randomizer) {
-    if (direction === 'left') {
-      walkLeft();
+  if (!monsterImmune) {
+    if (consecutive < randomizer) {
+      if (direction === 'left') {
+        walkLeft();
+      } else {
+        walkRight();
+      }
+      consecutive++;
     } else {
-      walkRight();
+      if (direction === 'left') {
+        direction = 'right'
+      } else {
+        direction = 'left'
+      }
+      consecutive = 0;
+      randomizer = getRandomInt(100)
     }
-    consecutive++;
-  } else {
-    if (direction === 'left') {
-      direction = 'right'
-    } else {
-      direction = 'left'
-    }
-    consecutive = 0;
-    randomizer = getRandomInt(100)
   }
 };
