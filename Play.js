@@ -10,6 +10,7 @@ import Wall from './Wall';
 import Boundary from './Boundary';
 import Monster from './Monster';
 import AttackButton from './AttackButton';
+import MonsterHealth from './MonsterHealth'
 
 const engine = Matter.Engine.create({ enableSleeping: false });
 const world = engine.world;
@@ -29,6 +30,7 @@ initialMonster.collisionFilter ={"group":-1,"mask":1,"category":1}
 const floorSize = Math.trunc(Math.max(width, height) * 0.075);
 const healthSize = Math.trunc(Math.max(width, height) * 0.075);
 const attackButtonSize = Math.trunc(Math.max(width, height) * 0.1);
+const monsterHealthSize = Math.trunc(Math.max(width, height) * 0.075);
 const boundarySize = Math.trunc(Math.max(width, height) * 0.009);
 const floor = Matter.Bodies.rectangle(
   0,
@@ -45,6 +47,9 @@ const healthBar = Matter.Bodies.rectangle(0, 0, width, healthSize, {
 const attackButton = Matter.Bodies.rectangle(width / 2.25, height - (height / 45), width, height, {
   isStatic: true,
 })
+const monsterHealthBar = Matter.Bodies.rectangle(0, 0, width, monsterHealthSize, {
+  isStatic: true,
+});
 const wall = Matter.Bodies.rectangle(0, 0, width, height, { isStatic: true });
 const leftBoundary = Matter.Bodies.rectangle(
   - width / 2 - boundarySize,
@@ -112,7 +117,13 @@ export default class Play extends React.Component {
             body: attackButton,
             size: [attackButtonSize, attackButtonSize],
             color: 'blue',
-            renderer: AttackButton,
+            renderer: AttackButton
+          },
+          monsterHealthBar: {
+            body: monsterHealthBar,
+            size: [width, monsterHealthSize],
+            color: 'green',
+            renderer: MonsterHealth,
           },
           wall: {
             body: wall,
