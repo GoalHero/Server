@@ -8,8 +8,9 @@ import HomeScreen from "./Components/HomeScreen";
 import Icon from "react-native-vector-icons/Ionicons";
 import Login from "./Components/Login";
 import User from "./Components/User";
-import Play from "./GameEngine/Play";
+// import Play from "./GameEngine/Play";
 import Goals from "./Components/Goals";
+import Play from "./GameEngine/Play";
 
 const HomeStack = createStackNavigator();
 const LoginStack = createStackNavigator();
