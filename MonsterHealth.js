@@ -19,24 +19,29 @@ function useInterval(callback, delay) {
     }, [delay]);
   }
 
-const HealthBar = () => {
+const monsterHealth = () => {
   let animation = useRef(new Animated.Value(0));
   const [health, setHealth] = useState(100);
   useInterval(() => {
     if (health <= 100 && health !== 0) {
-      setHealth(health - 10);
+      setHealth(health - 5);
     }
-  }, 1000);
+  }, 3000);
   useEffect(() => {
     Animated.timing(animation.current, {
       toValue: health,
       duration: 1000,
       useNativeDriver: true
     }).start();
-  }, [health])
+  }, [health]);
+  // const width = animation.current.interpolate({
+  //   inputRange: [0, 100],
+  //   outputRange: ["0%", "100%"],
+  //   extrapolate: "clamp"
+  // })
   return (
     <View style={styles.container}>
-      <Text>Hero Health</Text>
+      <Text>Monster Health</Text>
       <View style={styles.healthBar}>
         <Animated.View
           style={[
@@ -50,7 +55,7 @@ const HealthBar = () => {
   );
 };
 
-export default HealthBar;
+export default monsterHealth;
 
 const styles = StyleSheet.create({
   healthBar: {
