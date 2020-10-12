@@ -1,19 +1,15 @@
 import React from "react";
 import { View, Text, Button, StyleSheet, StatusBar } from "react-native";
 
-const HomeScreen = ({ navigation }) => {
+const Goals = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>
-        Welcome to Goal Hero! {"\n\n"}
-        Blah blah blah. How does goal hero work? {"\n\n"}
-        Make goals for yourself. Level up and defeat the enemy.
-      </Text>
+      <Text> THIS IS FOR THE GOALS</Text>
     </View>
   );
 };
 
-export default HomeScreen;
+export default Goals;
 
 const styles = StyleSheet.create({
   container: {

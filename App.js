@@ -8,10 +8,14 @@ import HomeScreen from "./Components/HomeScreen";
 import Icon from "react-native-vector-icons/Ionicons";
 import Login from "./Components/Login";
 import User from "./Components/User";
+import Play from "./GameEngine/Play";
+import Goals from "./Components/Goals";
 
 const HomeStack = createStackNavigator();
 const LoginStack = createStackNavigator();
 const UserStack = createStackNavigator();
+const PlayStack = createStackNavigator();
+const GoalsStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const HomeStackScreen = ({ navigation }) => (
@@ -87,7 +91,7 @@ const UserStackScreen = ({ navigation }) => (
     }}
   >
     <UserStack.Screen
-      name="Detail"
+      name="User"
       component={User}
       options={{
         headerLeft: () => (
@@ -104,17 +108,75 @@ const UserStackScreen = ({ navigation }) => (
   </UserStack.Navigator>
 );
 
+const PlayStackScreen = ({ navigation }) => (
+  <PlayStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: "#009387",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    }}
+  >
+    <PlayStack.Screen
+      name="Play"
+      component={Play}
+      options={{
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#009387"
+            // backgroundColor="#114C9F"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
+  </PlayStack.Navigator>
+);
+
+const GoalsStackScreen = ({ navigation }) => (
+  <GoalsStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: "#009387",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    }}
+  >
+    <GoalsStack.Screen
+      name="Goals"
+      component={Goals}
+      options={{
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#009387"
+            // backgroundColor="#114C9F"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
+  </GoalsStack.Navigator>
+);
+
 export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={HomeStackScreen} />
-        <Drawer.Screen name="Login" component={LoginStackScreen} />
-        {/* FISH: add log in here!
-        <Drawer.Screen name="" component={} />
-        STEPHEN/KEVIN: add game here!
-        <Drawer.Screen name="" component={} /> */}
-        <Drawer.Screen name="User" component={UserStackScreen} />
+        <Drawer.Screen name="Your Goals" component={GoalsStackScreen} />
+        <Drawer.Screen name="Play" component={PlayStackScreen} />
+        <Drawer.Screen name="Hero Profile" component={UserStackScreen} />
+        <Drawer.Screen name="Login/Logout" component={LoginStackScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
