@@ -171,6 +171,36 @@ const GoalsStackScreen = ({ navigation }) => (
   </GoalsStack.Navigator>
 );
 
+const HeroesStackScreen = ({ navigation }) => (
+  <HeroesStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: "#009387",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    }}
+  >
+    <HeroesStack.Screen
+      name="Heroes"
+      component={Heroes}
+      options={{
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#009387"
+            // backgroundColor="#114C9F"
+            onPress={() => navigation.openDrawer()}
+          ></Icon.Button>
+        ),
+      }}
+    />
+  </HeroesStack.Navigator>
+);
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -179,6 +209,7 @@ export default function App() {
         <Drawer.Screen name="Your Goals" component={GoalsStackScreen} />
         <Drawer.Screen name="Play" component={PlayStackScreen} />
         <Drawer.Screen name="Hero Profile" component={UserStackScreen} />
+        <Drawer.Screen name="Heroes" component={HeroesStackScreen} />
         <Drawer.Screen name="Login/Logout" component={LoginStackScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
