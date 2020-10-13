@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const {User} = require('../db/models')
 const adminOnly = require('./utils/adminOnly')
+
 // Gets all users with their id, email, and username
-//Securtity: only admin can get all user info
-router.get('/', adminOnly, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     //Securtity part
     // if (!req.user.isAdmin) {
