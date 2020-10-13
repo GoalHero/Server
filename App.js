@@ -11,12 +11,14 @@ import User from "./Components/User";
 // import Play from "./GameEngine/Play";
 import Goals from "./Components/Goals";
 import Play from "./GameEngine/Play";
+import Heroes from "./Components/Heroes";
 
 const HomeStack = createStackNavigator();
 const LoginStack = createStackNavigator();
 const UserStack = createStackNavigator();
 const PlayStack = createStackNavigator();
 const GoalsStack = createStackNavigator();
+const HeroesStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const HomeStackScreen = ({ navigation }) => (
