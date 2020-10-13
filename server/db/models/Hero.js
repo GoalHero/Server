@@ -1,9 +1,10 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Monster = db.define('Monster', {
+const Hero = db.define('Hero', {
   name: {
-    type: Sequelize.STRING
+   type: Sequelize.STRING,
+   defaultValue: "Knight"
   },
   health: {
     type: Sequelize.INTEGER
@@ -20,4 +21,4 @@ const Monster = db.define('Monster', {
   }
 })
 
-module.exports = Monster
+module.exports = Hero

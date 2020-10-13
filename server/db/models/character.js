@@ -1,26 +1,18 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Character = db.define('character', {
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  price: {
+const Character = db.define('Character', {
+  level: {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    validate: {
-      min: 0
-    }
+    defaultValue: 1
   },
-  description: {
-    type: Sequelize.TEXT,
-    allowNull: false
+  health: {
+    type: Sequelize.INTEGER,
+    defaultValue: 100
   },
-  imageUrl: {
-    type: Sequelize.TEXT,
-    allowNull: false,
-    defaultValue: 'https://images.heb.com/is/image/HEBGrocery/001199858'
+  damage: {
+    type: Sequelize.INTEGER,
+    defaultValue: 10
   }
 })
 
