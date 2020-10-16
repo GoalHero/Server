@@ -1,19 +1,22 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require('sequelize');
+const db = require('../db');
 
 const Character = db.define('Character', {
+  username: {
+    type: Sequelize.STRING,
+  },
   level: {
     type: Sequelize.INTEGER,
-    defaultValue: 1
+    defaultValue: 1,
   },
   health: {
     type: Sequelize.INTEGER,
-    defaultValue: 100
+    defaultValue: 100,
   },
   damage: {
     type: Sequelize.INTEGER,
-    defaultValue: 10
-  }
-})
+    defaultValue: 10,
+  },
+});
 
-module.exports = Character
+module.exports = Character;
